@@ -3,16 +3,19 @@ import { SessionContext } from '../contexts/SessionContext'
 import Layout from '../components/Layout'
 
 
+
 const ProfilePage = () => {
     const { logout } = useContext(SessionContext)
     const { isLoggedIn } = useContext(SessionContext)
+    const profileToEdit = useContext('')
 
-    console.log("Profile logged: ", isLoggedIn)
+
   return (
-    <Layout>
-      <h1>ProfilePage</h1>
-      <button type='button' onClick={logout}>Logout</button> 
-    </Layout>
+      <Layout>
+        <h1>My Profile</h1>
+        <button type="button">Edit</button>
+        <button type='button' onClick={logout}>Logout</button> 
+      </Layout>
   )
 }
 

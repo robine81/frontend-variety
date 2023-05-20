@@ -1,7 +1,11 @@
+import  { Breakpoint, BreakpointProvider } from 'react-socks';
+
 const Footer = () => {
   return (
     <div>
-      <footer>
+      <nav>
+        <Breakpoint medium up>
+        <footer>
         <div className='footer'>
           <a href='/'> 
           <svg width={30} height={24}> <use xlinkHref='#home' /></svg>
@@ -32,6 +36,49 @@ const Footer = () => {
           </li>
         </ul>
       </footer>
+          </Breakpoint>
+          <Breakpoint small down>
+          <div className='nav-bar'>
+            <a chref='/'>
+              Variety
+            </a>
+            <div className='nav-bar'>
+              <ul className='nav-bar'>
+                <li>
+                  <a href='/'>
+                    HOME
+                  </a>
+                </li>
+                <li>
+                  <a href='/all-events'>
+                    EVENTS
+                  </a>
+                </li>
+                <li>
+                  <a href='/all-artists'>
+                    ARTISTS
+                  </a>
+                </li>
+                <li>
+                  <a href='/profile'>
+                    MY PROFILE
+                  </a>
+                </li>
+                <li>
+                  <a href='/contact'>
+                    CONTACT
+                  </a>
+                </li>
+                <li>
+                  <a href='/sign-up'>
+                    SIGN-UP
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          </Breakpoint>
+        </nav>
     </div>
   )
 }
