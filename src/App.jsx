@@ -3,11 +3,12 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import ProfilePage from './pages/ProfilePage'
 import PrivateRoute from './components/PrivateRoute'
+import HomePage from './pages/HomePage'
 
 function App() {
   return (
     <Routes>
-      {/* <Route path='/' element={<HomePage />} /> */}
+      <Route path='/' element={<HomePage />} />
       <Route path='/signup' element={<SignupPage />} />
       <Route path='/login' element={<LoginPage />} />
       { <Route
@@ -18,7 +19,6 @@ function App() {
           </PrivateRoute>
         }
       /> }
-
     </Routes>
   )
 }
