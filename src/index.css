@@ -46,7 +46,6 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  color: white;
 }
 button:hover {
   border-color: #646cff;
@@ -125,4 +124,9 @@ button:focus-visible {
   display: flex;
   justify-content: center;
   gap: 5px;
+}
+
+.add-new-form {
+  display: flex;
+  flex-direction: column;
 }

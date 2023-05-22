@@ -6,6 +6,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import HomePage from "./pages/HomePage";
 import { Breakpoint, BreakpointProvider } from "react-socks";
 import EventsPage from "./pages/EventsPage";
+import AddEventPage from "./pages/AddEventPage";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/events/add" element={<AddEventPage />} />
+
         {
           <Route
             path="/profile"
