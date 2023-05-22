@@ -23,7 +23,7 @@ const ArtistsPage = () => {
         <>
         <h1>Variety Artists</h1>
         {artists.map(artist => (
-            <Link key={artist._id} to ={`/detail/${artist._id}`}>
+            <Link key={artist._id} to ={`/artist/${artist._id}`}>
                 <img width="150px" src={artist.artistPicUrl} alt='artist image'/>
                 <h2>{artist.artistName}</h2>
                 <h4>{artist.soundCloudUrl}</h4>
@@ -31,7 +31,7 @@ const ArtistsPage = () => {
         ))}
             <div>
               <button>
-                 <Link to = {`/add-artist`}>Add a new Artist </Link>
+                 <Link to = {`/artist/add`}>Add a new Artist </Link>
               </button>
             </div>    
         </>

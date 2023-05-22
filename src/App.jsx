@@ -21,8 +21,8 @@ function App() {
       <Route path='/signup' element={<SignupPage />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/all-artists' element={<ArtistsPage />} />
-      <Route path='/add-artist' element={<AddArtistPage />} />
-      <Route path='/detail/:id' element={<DetailArtistPage />} />
+      <Route path='/artist/add' element={<AddArtistPage />} />
+      <Route path='/artist/:id' element={<DetailArtistPage />} />
       <Route path='/update/:id' element={<UpdateArtistPage />} />
     </Routes>
     </BreakpointProvider>

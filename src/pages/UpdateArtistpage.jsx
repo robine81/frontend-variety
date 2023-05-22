@@ -12,10 +12,10 @@ const UpdateArtistPage = () => {
             const response = await fetch(`http://localhost:5005/artists/${id}`)
             const artist = await response.json()
             delete artist.id
-            console.log(artist)
-            console.log(inputs)
-            setInputs(artist)
+            //console.log(artist)
+            //console.log(inputs)
             setIsLoading(false)
+            setInputs(artist)
     }       catch (error) {
             console.log(error)
     }
@@ -25,90 +25,95 @@ const UpdateArtistPage = () => {
   }, [id])
 
   const handleChange = event => {
-    setInputs(prevInputs => {
-        let currentValue = event.target.value
-        const currentTarget = event.target.name
+    const { name, value } = event.target
+    setInputs((prevInputs) => ({
+      ...prevInputs,
+      [name]: value,
+    }))
+  }
+        //let currentValue = event.target.value
+        //onst currentTarget = event.target.name
   
-        if (event.target.type === 'checkbox') {
-          currentValue = event.target.checked
-          console.log(event.target.checked)
-        }
-  
+        //if (event.target.type === 'checkbox') {
+          //currentValue = event.target.checked
+          //console.log(event.target.checked)
+        
+  /*
         return { ...prevInputs, [currentTarget]: currentValue }
       })
-    }
-    const handleSubmit = async event => {
+    }*/
+
+    const handleSubmit = async (event) => {
         event.preventDefault()
-        const payload = { ...inputs }
-    
+        //const payload = { ...inputs }
         try {
           const response = await fetch(`http://localhost:5005/artists/${id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(payload),
+            body: JSON.stringify(inputs),
           })
           if (response.status === 200) {
             console.log('All good')
             // Navigate to the details page
-            navigate(`/detail/${id}`)
+            navigate(`/artist/${id}`)
           }
         } catch (error) {
           console.log(error)
         }
-      }
+      };
     
   
-    return isLoading ? (
+        return isLoading ? (
         <h1>Loading...</h1>
   ) : (
     <>
-      <h1>Update {artist.artistName}</h1>
+      <h1>Update {inputs.artistName}</h1>
       <form
         style={{ display: 'grid', gridTemplate: 'repeat(5, 1fr) / auto' }}
         onSubmit={handleSubmit}
       >
         <label>
         Artist Name:
-          <input value={inputs.artistName} name='Artist Name' onChange={handleChange} />
+          <input value={inputs.artistName} name='artistName' onChange={handleChange} />
         </label>
         <label>
         First Name:
-          <input value={inputs.firstName} name='First Name' onChange={handleChange} />
+          <input value={inputs.firstName} name='firstName' onChange={handleChange} />
         </label>
         <label>
         Last Name:
-          <input value={inputs.lastName} name='Last Name' onChange={handleChange} />
+          <input value={inputs.lastName} name='lastName' onChange={handleChange} />
         </label>
         <label>
         Artist Pic:
-          <input value={inputs.artistPicUrl} name='Artist Pic' onChange={handleChange} />
+          <input value={inputs.artistPicUrl} name='artistPicUrl' onChange={handleChange} />
         </label>
         <label>
         Soundcloud:
-          <input value={inputs.soundCloudUrl} name='Soundcloud' onChange={handleChange} />
+          <input value={inputs.soundCloudUrl} name='soundCloudUrl' onChange={handleChange} />
         </label>
         <label>
         Beatport:
-          <input value={inputs.beatPortUrl} name='Beatport' onChange={handleChange} />
+          <input value={inputs.beatPortUrl} name='beatPortUrl' onChange={handleChange} />
         </label>
         <label>
           Name:
-          <input value={inputs.instagramUrl} name='Instagram' onChange={handleChange} />
+          <input value={inputs.instagramUrl} name='instagramUrl' onChange={handleChange} />
         </label>
         <label>
         Facebook:
-          <input value={inputs.facebookUrl} name='Facebook' onChange={handleChange} />
+          <input value={inputs.facebookUrl} name='facebookUrl' onChange={handleChange} />
         </label>
         <label>
         Web Page:
-          <input value={inputs.webPage} name='Web Page' onChange={handleChange} />
+          <input value={inputs.webPage} name='webPage' onChange={handleChange} />
         </label>
         <button type='submit'>Save Changes</button>
       </form>
     </>
-  )
-}
+  );
+  }
  
 export default UpdateArtistPage;
