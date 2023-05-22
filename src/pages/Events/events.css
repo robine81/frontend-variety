@@ -1,0 +1,15 @@
+.event-page {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+.event-page-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.add-new-form {
+  display: flex;
+  flex-direction: column;
+}

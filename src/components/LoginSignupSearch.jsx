@@ -9,7 +9,7 @@ const LoginSignupSearch = () =>{
                 </a>
             </li>
             <li>
-                <a href='/sign-up'>
+                <a href='/signup'>
                   Sign-Up
                 </a>
             </li>

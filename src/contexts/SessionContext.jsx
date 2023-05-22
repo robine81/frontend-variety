@@ -17,13 +17,14 @@ const SessionContextProvider = ({ children }) => {
         Authorization: `Bearer ${currentToken}`,
       },
     })
-    if (response.status === 200) {
+    console.log("Respones: ", response.ok)
+    if (response.ok) {
       const parsed = await response.json()
       setToken(currentToken)
       setIsLoggedIn(true)
-      console.log(parsed)
+      console.log("Parsed: ",parsed)
     }
-    setIsLoading(false)
+     setIsLoading(false)
   }
 
   useEffect(() => {
@@ -36,9 +37,11 @@ const SessionContextProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       localStorage.setItem('authToken', token)
+      // setIsLoggedIn(true)
       setIsLoading(false)
     } else {
       localStorage.removeItem('authToken')
+      // setIsLoading(false)
     }
   }, [token])
 
@@ -51,7 +54,7 @@ const SessionContextProvider = ({ children }) => {
   }
 
   return (
-    <SessionContext.Provider value={{ token, setToken, isLoggedIn, isLoading, logout }}>
+    <SessionContext.Provider value={{ token, setToken, isLoggedIn, setIsLoggedIn, isLoading, logout }}>
       {children}
     </SessionContext.Provider>
   )

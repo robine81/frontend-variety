@@ -8,7 +8,7 @@ const LoginPage = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const { setToken } = useContext(SessionContext)
+    const { setToken, setIsLoggedIn } = useContext(SessionContext)
 
 const handleSubmit = async event => {
   event.preventDefault()
@@ -21,7 +21,9 @@ const handleSubmit = async event => {
   })
   if (response.status === 200) {
     const tokenFromResponse = await response.json()
+    console.log("Token: ", tokenFromResponse)
     setToken(tokenFromResponse)
+    setIsLoggedIn(true)
     navigate('/profile')
   }
 }
