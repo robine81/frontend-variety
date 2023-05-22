@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import EventCard from "../components/EventCard/EventCard";
+import EventCard from "../../components/EventCard/EventCard";
+import { Link } from "react-router-dom";
+import "./events.css";
 
 export default function EventsPage() {
   const [events, setEvents] = useState([]);
@@ -69,7 +71,7 @@ export default function EventsPage() {
           );
         })}
       </div>
-      <a href="/events/add"> Add Event</a>
+      <Link to="/events/add"> Add Event</Link>
     </div>
   );
 }
