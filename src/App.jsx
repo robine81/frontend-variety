@@ -8,6 +8,7 @@ import { Breakpoint, BreakpointProvider } from "react-socks";
 import EventsPage from "./pages/Events/EventsPage";
 import AddEventPage from "./pages/Events/AddEventPage";
 import OneEventPage from "./pages/Events/OneEventPage";
+import UpdateEventPage from "./pages/Events/UpdateEventPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/events/add" element={<AddEventPage />} />
+        <Route path="/events/update/:id" element={<UpdateEventPage />} />
         <Route path="/events/:id" element={<OneEventPage />} />
 
         {

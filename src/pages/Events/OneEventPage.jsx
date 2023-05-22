@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { SessionContext } from "../../contexts/SessionContext";
 import { useNavigate } from "react-router-dom";
 import "./events.css";
@@ -58,7 +58,7 @@ export default function OneEventPage() {
         <p>{event.ticketPrice}€</p>
       </div>
       <button onClick={deleteEvent}>Delete</button>
-      <button>Edit</button>
+      <Link to={`/events/update/${event._id}`}>Edit</Link>
     </div>
   );
 }
