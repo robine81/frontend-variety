@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 const ArtistsPage = () => {
     const [ artists, setArtists ]= useState([])
@@ -8,8 +8,8 @@ const ArtistsPage = () => {
         try {
             const response = await fetch(`http://localhost:5005/artists`)
             if (response.status === 200){
-                const parsed = await response.json()
-                setArtists(parsed)
+                const data = await response.json()
+                setArtists(data)
             }
         } catch (error) {
             console.error(error)
@@ -18,15 +18,22 @@ const ArtistsPage = () => {
     useEffect(() => {
         fetchArtists()
     }, [])
+
     return artists ? (
         <>
         <h1>Variety Artists</h1>
         {artists.map(artist => (
-            <Link key={artist._id} to ={`/artists/${artist._id}`}>
+            <Link key={artist._id} to ={`/detail/${artist._id}`}>
+                <img width="150px" src={artist.artistPicUrl} alt='artist image'/>
                 <h2>{artist.artistName}</h2>
                 <h4>{artist.soundCloudUrl}</h4>
             </Link>
-        ))}    
+        ))}
+            <div>
+              <button>
+                 <Link to = {`/add-artist`}>Add a new Artist </Link>
+              </button>
+            </div>    
         </>
       ) : (
         <h1>Loading...</h1>

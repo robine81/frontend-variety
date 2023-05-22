@@ -1,13 +1,15 @@
 import { useLocalStorage } from '@mantine/hooks'
 import { createContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const SessionContext = createContext()
 
 const SessionContextProvider = ({ children }) => {
-  // const [token, setToken] = useLocalStorage({ key: 'authToken' })
-  const [token, setToken] = useState()
+  const [token, setToken] = useLocalStorage({ key: 'authToken' })
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+
+  const navigate = useNavigate()
 
   const verifyToken = async currentToken => {
     const response = await fetch('http://localhost:5005/auth/verify', {
@@ -44,6 +46,8 @@ const SessionContextProvider = ({ children }) => {
     setToken()
     localStorage.removeItem('authToken')
     setIsLoggedIn(false)
+    console.log("Logged in: ", isLoggedIn)
+    navigate('/login')
   }
 
   return (
