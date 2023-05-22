@@ -1,4 +1,5 @@
 import  { Breakpoint, BreakpointProvider } from 'react-socks';
+import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
     return (
@@ -6,40 +7,40 @@ const NavigationBar = () => {
       <nav>
       <Breakpoint medium up>
           <div className='nav-bar'>
-            <a chref='/'>
+            <Link to='/'>
               Variety
-            </a>
+            </Link>
             <div className='nav-bar'>
               <ul className='nav-bar'>
                 <li>
-                  <a href='/'>
+                  <Link to='/'>
                     HOME
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='/all-events'>
+                  <Link to='/events'>
                     EVENTS
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='/all-artists'>
+                  <Link to='/artists'>
                     ARTISTS
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='/profile'>
+                  <Link to='/profile'>
                     MY PROFILE
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='/contact'>
+                  <Link to='/contact'>
                     CONTACT
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='/sign-up'>
+                  <Link to='/signup'>
                     SIGN-UP
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
