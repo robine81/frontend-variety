@@ -6,16 +6,16 @@ import { useNavigate } from "react-router-dom";
 const ProfilePage = () => {
   const { logout } = useContext(SessionContext);
   const { isLoggedIn } = useContext(SessionContext);
-  const profileToEdit = useContext("");
+  const { user } = useContext(SessionContext);
 
   console.log("Profile logged in? ", isLoggedIn);
 
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [firstName, setFirstName] = useState(user.firstName);
+  const [lastName, setLastName] = useState(user.lastName);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -33,30 +33,49 @@ const ProfilePage = () => {
 
   return (
     <Layout>
-      Test
-      {/* <h1>My Profile</h1>
-        <form onSubmit={handleSubmit}>
+      <h1>My Profile</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          First Name
+          <input
+            type="text"
+            required
+            value={firstName}
+            onChange={(event) => setFirstName(event.target.value)}
+          />
+        </label>
+        <label>
+          Last Name
+          <input
+            type="text"
+            required
+            value={lastName}
+            onChange={(event) => setLastName(event.target.value)}
+          />
+        </label>
         <label>
           Email
           <input
-            type='email'
+            type="email"
             required
             value={email}
-            onChange={event => setEmail(event.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </label>
         <label>
           Password
           <input
-            type='password'
+            type="password"
             required
             value={password}
-            onChange={event => setPassword(event.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
           />
         </label>
-        <button type='submit'>Edit</button>
-        <button type='button' onClick={logout}>Logout</button> 
-      </form> */}
+        <button type="submit">Edit</button>
+        <button type="button" onClick={logout}>
+          Logout
+        </button>
+      </form>
     </Layout>
   );
 };
