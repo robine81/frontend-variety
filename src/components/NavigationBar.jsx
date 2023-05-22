@@ -1,19 +1,22 @@
-import  { Breakpoint, BreakpointProvider } from 'react-socks';
+import  { Breakpoint } from 'react-socks';
 import { Link } from 'react-router-dom';
+import HomePage from '../pages/HomePage'
+import ProfilePage from '../pages/ProfilePage';
+import ContactPage from '../pages/ContactPage'
 
 const NavigationBar = () => {
-    return (
+  return (
       <div>
       <nav>
       <Breakpoint medium up>
           <div className='nav-bar'>
-            <Link to='/'>
+            <Link to='/' component={<HomePage />}>
               Variety
             </Link>
             <div className='nav-bar'>
               <ul className='nav-bar'>
                 <li>
-                  <Link to='/'>
+                  <Link to='/' component={<HomePage />}>
                     HOME
                   </Link>
                 </li>
@@ -28,12 +31,12 @@ const NavigationBar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to='/profile'>
+                  <Link to='/profile' component={<ProfilePage />}>
                     MY PROFILE
                   </Link>
                 </li>
                 <li>
-                  <Link to='/contact'>
+                  <Link to='/contact' component={<ContactPage />}>
                     CONTACT
                   </Link>
                 </li>

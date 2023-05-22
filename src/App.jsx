@@ -4,7 +4,8 @@ import SignupPage from './pages/SignupPage'
 import ProfilePage from './pages/ProfilePage'
 import PrivateRoute from './components/PrivateRoute'
 import HomePage from './pages/HomePage'
-import  { Breakpoint, BreakpointProvider } from 'react-socks';
+import ContactPage from './pages/ContactPage'
+import  { BreakpointProvider } from 'react-socks';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path='/' element={<HomePage />} />
       <Route path='/signup' element={<SignupPage />} />
       <Route path='/login' element={<LoginPage />} />
+      <Route path='/contact' element={<ContactPage />} />
       { <Route
         path='/profile'
         element={

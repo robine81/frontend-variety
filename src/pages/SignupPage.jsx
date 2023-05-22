@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Layout from '../components/Layout'
 
 const SignupPage=() => {
     const navigate = useNavigate()
@@ -23,7 +24,7 @@ const SignupPage=() => {
 
 
   return (
-    <>
+    <Layout>
       <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -46,7 +47,7 @@ const SignupPage=() => {
         </label>
         <button type='submit'>Sign Up</button>
       </form>
-    </>
+    </Layout>
   )
 }
 
