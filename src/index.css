@@ -120,7 +120,7 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
 }
-.event-page .page {
+.event-page-pagination {
   display: flex;
   justify-content: center;
   gap: 5px;

@@ -4,6 +4,7 @@ import EventCard from "../components/EventCard/EventCard";
 export default function EventsPage() {
   const [events, setEvents] = useState([]);
   const [page, setPage] = useState(0);
+  const [filtered, setFiltered] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -21,18 +22,39 @@ export default function EventsPage() {
     setPage(pageNum);
   };
 
+  const searchEvent = (ev) => {
+    const keyword = ev.target.value;
+    const eventNameRegex = new RegExp(keyword, "i");
+    const filteredEvents = events.filter((oneevent) => {
+      return eventNameRegex.test(oneevent.eventName);
+    });
+    setFiltered(filteredEvents);
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
 
-  const pageCount = Math.ceil(events.length / 5);
+  let eventSource = events;
+  if (filtered.length > 0) {
+    eventSource = filtered;
+  }
+
+  const pageCount = Math.ceil(eventSource.length / 5);
 
   return (
     <div className="event-page">
-      {events.slice(page * 5, page * 5 + 5).map((event) => {
+      <div className="event-filter">
+        <input
+          type="search"
+          placeholder="Search Event"
+          onChange={searchEvent}
+        />
+      </div>
+      {eventSource.slice(page * 5, page * 5 + 5).map((event) => {
         return <EventCard event={event} />;
       })}
-      <div className="page">
+      <div className="event-page-pagination">
         {[...Array(pageCount)].map((val, index) => {
           return (
             <button
