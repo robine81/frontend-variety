@@ -53,10 +53,10 @@ const DetailArtistPage = () => {
       <h4>Web Page: <Link to={artist.webPage}>{artist.webPage}</Link></h4>
         </div>
       <button>
-        <Link to={`/update/${id}`}>Update Artist Info</Link>
+        <Link to={`/artists/update/${id}`}>Update Artist Info</Link>
       </button>
       <button type='button' onClick={handleDelete}>
-        <Link to={`/all-artists`}>Delete Artist</Link>
+        <Link to={`/artists`}>Delete Artist</Link>
       </button>
     </>
   ) : (

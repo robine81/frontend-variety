@@ -34,23 +34,11 @@ const AddArtistPage = () => {
                 },
                 body: JSON.stringify(newArtist),
             });
-
-            if (response.status === 200) {
-                console.log('Artist created:', await response.json())
-                setArtistName('')
-                setFirstName('')
-                setLastName('')
-                setArtistPicUrl('')
-                setSoundCloudUrl('')
-                setBeatPortUrl('')
-                setInstagramUrl('')
-                setFacebookUrl('')
-                setWebPage('')
+            
+                console.log('Artist created:', response.json())
                 navigate(`/artists`)
-            } else {
-                console.error('Failed to create artist:')
             }
-        } catch (error) {
+         catch (error) {
             console.log(error)
         }
     }
@@ -118,6 +106,6 @@ const AddArtistPage = () => {
             </form>
         </div>
       );
-}
- 
+
+    }
 export default AddArtistPage;

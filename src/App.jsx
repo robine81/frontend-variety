@@ -25,7 +25,7 @@ function App() {
       <Route path='/artists' element={<ArtistsPage />} />
       <Route path='/artists/add' element={<AddArtistPage />} />
       <Route path='/artists/:id' element={<DetailArtistPage />} />
-      <Route path='/update/:id' element={<UpdateArtistPage />} />
+      <Route path='/artists/update/:id' element={<UpdateArtistPage />} />
       <Route path="/events" element={<EventsPage />} />
       <Route path="/events/add" element={<AddEventPage />} />
       <Route path="/events/update/:id" element={<UpdateEventPage />} />
