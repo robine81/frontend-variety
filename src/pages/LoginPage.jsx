@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { SessionContext } from "../contexts/SessionContext";
 import { Link, useNavigate } from "react-router-dom";
-import Layout from "../components/Layout";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -12,13 +11,16 @@ const LoginPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_BASE_API_URL}/auth/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      }
+    );
     if (response.status === 200) {
       const { authToken, user } = await response.json();
       console.log("Token: ", authToken);
@@ -30,7 +32,7 @@ const LoginPage = () => {
   };
 
   return (
-    <Layout>
+    <>
       <h1>Login Page</h1>
       <Link to="/profile">GO TO PROFILE</Link>
       <form onSubmit={handleSubmit}>
@@ -54,7 +56,7 @@ const LoginPage = () => {
         </label>
         <button type="submit">Log In</button>
       </form>
-    </Layout>
+    </>
   );
 };
 
