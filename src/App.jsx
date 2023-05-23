@@ -23,8 +23,8 @@ function App() {
       <Route path='/signup' element={<SignupPage />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/artists' element={<ArtistsPage />} />
-      <Route path='/artist/add' element={<AddArtistPage />} />
-      <Route path='/artist/:id' element={<DetailArtistPage />} />
+      <Route path='/artists/add' element={<AddArtistPage />} />
+      <Route path='/artists/:id' element={<DetailArtistPage />} />
       <Route path='/update/:id' element={<UpdateArtistPage />} />
       <Route path="/events" element={<EventsPage />} />
       <Route path="/events/add" element={<AddEventPage />} />

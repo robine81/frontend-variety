@@ -57,7 +57,7 @@ const UpdateArtistPage = () => {
           if (response.status === 200) {
             console.log('All good')
             // Navigate to the details page
-            navigate(`/artist/${id}`)
+            navigate(`/artists/${id}`)
           }
         } catch (error) {
           console.log(error)
