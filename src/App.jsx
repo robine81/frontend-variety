@@ -1,17 +1,16 @@
 import { Route, Routes } from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
-import ArtistsPage from './pages/ArtistsPage'
-import AddArtistPage from './pages/AddArtistPage'
-import DetailArtistPage from './pages/DetailArtistPage'
-import UpdateArtistPage from './pages/UpdateArtistpage'
+import ArtistsPage from './pages/artists/ArtistsPage'
+import AddArtistPage from './pages/artists/AddArtistPage'
+import DetailArtistPage from './pages/artists/DetailArtistPage'
+import UpdateArtistPage from './pages/artists/UpdateArtistpage'
 import ProfilePage from './pages/ProfilePage'
 import PrivateRoute from './components/PrivateRoute'
 import HomePage from './pages/HomePage'
-import { Breakpoint, BreakpointProvider } from "react-socks";
+import { BreakpointProvider } from "react-socks";
 import EventsPage from "./pages/Events/EventsPage"
 import AddEventPage from "./pages/Events/AddEventPage";
-
 import OneEventPage from "./pages/Events/OneEventPage";
 import UpdateEventPage from "./pages/Events/UpdateEventPage";
 
@@ -23,7 +22,7 @@ function App() {
       <Route path='/' element={<HomePage />} />
       <Route path='/signup' element={<SignupPage />} />
       <Route path='/login' element={<LoginPage />} />
-      <Route path='/all-artists' element={<ArtistsPage />} />
+      <Route path='/artists' element={<ArtistsPage />} />
       <Route path='/artist/add' element={<AddArtistPage />} />
       <Route path='/artist/:id' element={<DetailArtistPage />} />
       <Route path='/update/:id' element={<UpdateArtistPage />} />
@@ -44,7 +43,7 @@ function App() {
           />
         }
       </Routes>
-    </BreakpointProvider>
+     </BreakpointProvider>
   );
 }
 

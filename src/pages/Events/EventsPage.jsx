@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import EventCard from "../../components/EventCard/EventCard";
 import { Link } from "react-router-dom";
 import "./events.css";
@@ -54,12 +54,12 @@ export default function EventsPage() {
         />
       </div>
       {eventSource.slice(page * 5, page * 5 + 5).map((event) => {
-        return <EventCard event={event} />;
+        return <EventCard event={event} key={event._id} />;
       })}
       <div className="event-page-pagination">
         {[...Array(pageCount)].map((val, index) => {
           return (
-            <button
+            <button key={val._id}
               style={{ fontWeight: page === index ? "bold" : "normal" }}
               type="button"
               onClick={() => {
