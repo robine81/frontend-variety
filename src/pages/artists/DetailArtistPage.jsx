@@ -43,7 +43,7 @@ const DetailArtistPage = () => {
     <>
         <div>
     <h1>{artist.artistName} </h1>
-    <img width="150px" src={artist.artistPicUrl} alt='artist image'/>
+    <img width="200px" src={artist.artistPicUrl} alt='artist image'/>
       <h4> First Name: {artist.firstName} </h4>
       <h4> Last Name: {artist.lastName} </h4>
       <h4>Soundcloud: <Link to={artist.soundCloudUrl}>{artist.soundCloudUrl}</Link></h4>

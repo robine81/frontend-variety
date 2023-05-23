@@ -27,7 +27,7 @@ const AddArtistPage = () => {
             webPage,
         }
         try {
-            const response = await fetch(`http://localhost:5005/artists/add-artists`, {
+            const response = await fetch(`http://localhost:5005/artists/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const AddArtistPage = () => {
                 setInstagramUrl('')
                 setFacebookUrl('')
                 setWebPage('')
-                navigate(`/all-artists`)
+                navigate(`/artists`)
             } else {
                 console.error('Failed to create artist:')
             }
