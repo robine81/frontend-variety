@@ -86,6 +86,7 @@ export default function EventForm(props) {
       <label>
         Line Up
         <select
+          value={lineUp.map((lp) => lp._id)}
           required
           multiple
           onChange={(event) => {
@@ -93,7 +94,7 @@ export default function EventForm(props) {
           }}
         >
           {artists.map((artist) => (
-            <option value={artist._id} selected={lineUp.includes(artist._id)}>
+            <option key={artist._id} value={artist._id}>
               {artist.artistName}
             </option>
           ))}

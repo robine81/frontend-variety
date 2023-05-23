@@ -52,7 +52,9 @@ export default function OneEventPage() {
         <h2>{event.eventName}</h2>
         <p>
           {event.lineUp &&
-            event.lineUp.map((artist) => <span>{artist.artistName}</span>)}
+            event.lineUp.map((artist) => (
+              <span key={artist._id}>{artist.artistName}</span>
+            ))}
         </p>
         <p>{event.location}</p>
         <p>{event.ticketPrice}€</p>
