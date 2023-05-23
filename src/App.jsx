@@ -5,21 +5,13 @@ import ArtistsPage from './pages/ArtistsPage'
 import AddArtistPage from './pages/AddArtistPage'
 import DetailArtistPage from './pages/DetailArtistPage'
 import UpdateArtistPage from './pages/UpdateArtistpage'
-// import ProfilePage from './pages/ProfilePage'
-// import PrivateRoute from './components/PrivateRoute'
 import ProfilePage from './pages/ProfilePage'
 import PrivateRoute from './components/PrivateRoute'
 import HomePage from './pages/HomePage'
-import  { Breakpoint, BreakpointProvider } from 'react-socks';
-import { Route, Routes } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
-import ProfilePage from "./pages/ProfilePage";
-import PrivateRoute from "./components/PrivateRoute";
-import HomePage from "./pages/HomePage";
 import { Breakpoint, BreakpointProvider } from "react-socks";
-import EventsPage from "./pages/Events/EventsPage";
+import EventsPage from "./pages/Events/EventsPage"
 import AddEventPage from "./pages/Events/AddEventPage";
+
 import OneEventPage from "./pages/Events/OneEventPage";
 import UpdateEventPage from "./pages/Events/UpdateEventPage";
 
