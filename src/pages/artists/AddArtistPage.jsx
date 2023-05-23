@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { SessionContext } from "../../contexts/SessionContext";
 
 const AddArtistPage = () => {
+    const { token } = useContext(SessionContext);
     const navigate = useNavigate()
     const [artistName, setArtistName] = useState('')
     const [firstName, setFirstName] = useState('')
@@ -31,10 +33,11 @@ const AddArtistPage = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                      Authorization: `Bearer ${token}`,
                 },
                 body: JSON.stringify(newArtist),
             });
-            
+
                 console.log('Artist created:', response.json())
                 navigate(`/artists`)
             }
