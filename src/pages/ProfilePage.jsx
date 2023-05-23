@@ -1,13 +1,12 @@
 import { useContext, useState } from "react";
 import { SessionContext } from "../contexts/SessionContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ProfilePage = () => {
   const { logout } = useContext(SessionContext);
   const { isLoggedIn } = useContext(SessionContext);
   const { user } = useContext(SessionContext);
-
-  console.log("Profile logged in? ", isLoggedIn);
+  const [isLoading, setIsLoading] = useState(true)
 
   const navigate = useNavigate();
 
@@ -18,19 +17,24 @@ const ProfilePage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch(
+    try 
+    {    
+      const response = await fetch(
       `${import.meta.env.VITE_BASE_API_URL}/profile/edit`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, firstName, lastName }),
       }
     );
     if (response.status === 201) {
-      navigate("/login");
+      navigate("/profile");
     }
+  } catch (error){
+    console.log(error)
+  }
   };
 
   return (
@@ -41,7 +45,6 @@ const ProfilePage = () => {
           First Name
           <input
             type="text"
-            required
             value={firstName}
             onChange={(event) => setFirstName(event.target.value)}
           />
@@ -50,7 +53,6 @@ const ProfilePage = () => {
           Last Name
           <input
             type="text"
-            required
             value={lastName}
             onChange={(event) => setLastName(event.target.value)}
           />
@@ -59,18 +61,8 @@ const ProfilePage = () => {
           Email
           <input
             type="email"
-            required
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            required
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
           />
         </label>
         <button type="submit">Edit</button>

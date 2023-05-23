@@ -10,24 +10,27 @@ const LoginPage = () => {
   const { setToken, setIsLoggedIn, setUser } = useContext(SessionContext);
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const response = await fetch(
-      `${import.meta.env.VITE_BASE_API_URL}/auth/login`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
+    try {
+      event.preventDefault();
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_API_URL}/auth/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
+      if (response.status === 200) {
+        const { authToken, user } = await response.json();
+        setToken(authToken);
+        setUser(user);
+        setIsLoggedIn(true);
+        navigate("/profile");
       }
-    );
-    if (response.status === 200) {
-      const { authToken, user } = await response.json();
-      console.log("Token: ", authToken);
-      setToken(authToken);
-      setUser(user);
-      setIsLoggedIn(true);
-      navigate("/profile");
+    } catch(err){
+      console.log("Error login: ", err)
     }
   };
 
