@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { SessionContext } from "../contexts/SessionContext";
-import Layout from "../components/Layout";
 import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
@@ -19,20 +18,23 @@ const ProfilePage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/profile/edit`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_BASE_API_URL}/profile/edit`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      }
+    );
     if (response.status === 201) {
       navigate("/login");
     }
   };
 
   return (
-    <Layout>
+    <>
       <h1>My Profile</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -76,7 +78,7 @@ const ProfilePage = () => {
           Logout
         </button>
       </form>
-    </Layout>
+    </>
   );
 };
 
