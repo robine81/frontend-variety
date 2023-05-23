@@ -8,7 +8,9 @@ export default function EventForm(props) {
   const [location, setLocation] = useState(props.location || "");
   const [ticketPrice, setTicketPrice] = useState(props.ticketPrice);
   const [artworkUrl, setArtWorkUrl] = useState(props.artworkUrl || "");
-  const [lineUp, setLineUp] = useState(props.lineUp || []);
+  const [lineUp, setLineUp] = useState(
+    (Array.isArray(props.lineUp) && props.lineUp.map((lp) => lp._id)) || []
+  );
   const [artists, setArtists] = useState([]);
 
   const fetchArtists = async () => {
@@ -86,11 +88,16 @@ export default function EventForm(props) {
       <label>
         Line Up
         <select
-          value={lineUp.map((lp) => lp._id)}
-          required
+          value={lineUp}
           multiple
-          onChange={(event) => {
-            setLineUp(event.target.value);
+          onChange={(e) => {
+            //https://stackoverflow.com/a/49684109
+            let value = Array.from(
+              e.target.selectedOptions,
+              (option) => option.value
+            );
+
+            setLineUp(value);
           }}
         >
           {artists.map((artist) => (
