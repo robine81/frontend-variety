@@ -13,7 +13,7 @@ export default function EventForm(props) {
 
   const fetchArtists = async () => {
     try {
-      const response = await fetch("http://localhost:5005/artists");
+      const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/artists`);
       if (response.status === 200) {
         const data = await response.json();
         setArtists(data);

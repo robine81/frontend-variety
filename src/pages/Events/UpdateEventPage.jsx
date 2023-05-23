@@ -12,7 +12,7 @@ export default function UpdateEventPage() {
 
   const fetchEventId = async () => {
     try {
-      const response = await fetch(`http://localhost:5005/events/${id}`);
+      const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/events/${id}`);
       if (response.status === 200) {
         const data = await response.json();
         setEvent(data);
@@ -27,7 +27,7 @@ export default function UpdateEventPage() {
 
   const handleSubmit = async (payload) => {
     try {
-      const response = await fetch(`http://localhost:5005/events/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/events/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

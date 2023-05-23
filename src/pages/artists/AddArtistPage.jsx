@@ -27,7 +27,7 @@ const AddArtistPage = () => {
             webPage,
         }
         try {
-            const response = await fetch(`http://localhost:5005/artists/add`, {
+            const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/artists/add`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ export default function EventsPage() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:5005/events");
+      const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/events`);
       if (response.status === 200) {
         const data = await response.json();
         setEvents(data);

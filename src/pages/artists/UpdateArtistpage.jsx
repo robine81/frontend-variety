@@ -9,7 +9,7 @@ const UpdateArtistPage = () => {
 
     const fetchArtist = async () => {
         try {
-            const response = await fetch(`http://localhost:5005/artists/${id}`)
+            const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/artists/${id}`)
             const artist = await response.json()
             delete artist.id
             //console.log(artist)
@@ -47,7 +47,7 @@ const UpdateArtistPage = () => {
         event.preventDefault()
         //const payload = { ...inputs }
         try {
-          const response = await fetch(`http://localhost:5005/artists/${id}`, {
+          const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/artists/${id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',

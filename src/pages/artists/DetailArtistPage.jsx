@@ -10,7 +10,7 @@ const DetailArtistPage = () => {
   // Fetch the Artist
   const fetchArtist = async () => {
     try {
-      const response = await fetch(`http://localhost:5005/artists/${id}`)
+      const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/artists/${id}`)
       if (response.status === 200) {
         const data = await response.json()
         console.log(data)
@@ -28,7 +28,7 @@ const DetailArtistPage = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:5005/artists/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/artists/${id}`, {
         method: 'DELETE',
       })
       if (response.status === 200) {

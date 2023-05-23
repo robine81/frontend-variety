@@ -19,7 +19,7 @@ const ProfilePage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch("http://localhost:5005/profile/edit", {
+    const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/profile/edit`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
