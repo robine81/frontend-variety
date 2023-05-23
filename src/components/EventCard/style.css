@@ -1,6 +1,5 @@
 .event-card {
   display: flex;
-  width: 100%;
   align-items: center;
   border-bottom: 1px solid grey;
   padding: 10px;
@@ -12,5 +11,18 @@
   height: 150px;
   background-size: cover;
 }
-.addEvent {
+.event-card-link a {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text-color);
+}
+.event-card-link a:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+.event-card-info > h2 {
+  margin-top: 0;
+}
+.event-card-info > p {
+  margin: 0;
 }
