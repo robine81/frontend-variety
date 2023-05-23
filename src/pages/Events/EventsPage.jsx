@@ -53,13 +53,15 @@ export default function EventsPage() {
           onChange={searchEvent}
         />
       </div>
-      {eventSource.slice(page * 5, page * 5 + 5).map((event) => {
-        return <EventCard event={event} key={event._id} />;
-      })}
+      {eventSource.length > 0 &&
+        eventSource.slice(page * 5, page * 5 + 5).map((event) => {
+          return <EventCard key={event._id} event={event} />;
+        })}
       <div className="event-page-pagination">
         {[...Array(pageCount)].map((val, index) => {
           return (
-            <button key={val._id}
+            <button
+              key={`page-${index}`}
               style={{ fontWeight: page === index ? "bold" : "normal" }}
               type="button"
               onClick={() => {
