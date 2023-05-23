@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { SessionContext } from "../../contexts/SessionContext";
 
 const DetailArtistPage = () => {
+  const { token } = useContext(SessionContext);
   const { id } = useParams()
   const navigate = useNavigate()
   // Store the artist somewhere
@@ -30,9 +32,12 @@ const DetailArtistPage = () => {
     try {
       const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/artists/${id}`, {
         method: 'DELETE',
-      })
+        headers: {
+          'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+    }})
       if (response.status === 200) {
-        navigate('/all-artists')
+        navigate('/artists')
       }
     } catch (error) {
       console.log(error)
@@ -53,10 +58,10 @@ const DetailArtistPage = () => {
       <h4>Web Page: <Link to={artist.webPage}>{artist.webPage}</Link></h4>
         </div>
       <button>
-        <Link to={`/update/${id}`}>Update Artist Info</Link>
+        <Link to={`/artists/update/${id}`}>Update Artist Info</Link>
       </button>
       <button type='button' onClick={handleDelete}>
-        <Link to={`/all-artists`}>Delete Artist</Link>
+        <Link to={`/artists`}>Delete Artist</Link>
       </button>
     </>
   ) : (

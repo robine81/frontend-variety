@@ -19,33 +19,33 @@ function App() {
   return (
     <BreakpointProvider>
       <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/artists" element={<ArtistsPage />} />
-          <Route path="/artists/add" element={<AddArtistPage />} />
-          <Route path="/artists/:id" element={<DetailArtistPage />} />
-          <Route path="/update/:id" element={<UpdateArtistPage />} />
-          <Route path="/events" element={<EventsPage />} />
-          <Route path="/events/add" element={<AddEventPage />} />
-          <Route path="/events/update/:id" element={<UpdateEventPage />} />
-          <Route path="/events/:id" element={<OneEventPage />} />
-        </Routes>
-        <Routes>
-          {
-            <Route
-              path="/profile"
-              element={
-                <PrivateRoute>
-                  <ProfilePage />
-                </PrivateRoute>
-              }
-            />
-          }
-        </Routes>
+    <Routes>
+      <Route path='/' element={<HomePage />} />
+      <Route path='/signup' element={<SignupPage />} />
+      <Route path='/login' element={<LoginPage />} />
+      <Route path='/artists' element={<ArtistsPage />} />
+      <Route path='/artists/add' element={ <PrivateRoute> <AddArtistPage /> </PrivateRoute>}/>
+      <Route path='/artists/:id' element={ <DetailArtistPage />} />
+      <Route path='/artists/update/:id' element={ <PrivateRoute><UpdateArtistPage /></PrivateRoute>} />
+      <Route path="/events" element={<EventsPage />} />
+      <Route path="/events/add" element={<AddEventPage />} />
+      <Route path="/events/update/:id" element={<UpdateEventPage />} />
+      <Route path="/events/:id" element={<OneEventPage />} />
+    </Routes>
+      <Routes>
+        {
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <ProfilePage />
+              </PrivateRoute>
+            }
+          />
+        }
+      </Routes>
       </Layout>
-    </BreakpointProvider>
+     </BreakpointProvider>
   );
 }
 

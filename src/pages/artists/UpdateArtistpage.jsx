@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { SessionContext } from "../../contexts/SessionContext";
 
 const UpdateArtistPage = () => {
+    const { token } = useContext(SessionContext);
     const { id } = useParams()
     const navigate = useNavigate()
     const [inputs, setInputs] = useState({ artistName: '', firstName: '', lastName: '', artistPicUrl: '', soundCloudUrl: '', beatPortUrl: '', instagramUrl: '', facebookUrl: '', webPage: '', })
@@ -51,6 +53,7 @@ const UpdateArtistPage = () => {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify(inputs),
           })

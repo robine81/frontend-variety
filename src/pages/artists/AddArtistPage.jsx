@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { SessionContext } from "../../contexts/SessionContext";
 
 const AddArtistPage = () => {
+    const { token } = useContext(SessionContext);
     const navigate = useNavigate()
     const [artistName, setArtistName] = useState('')
     const [firstName, setFirstName] = useState('')
@@ -31,26 +33,15 @@ const AddArtistPage = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                      Authorization: `Bearer ${token}`,
                 },
                 body: JSON.stringify(newArtist),
             });
 
-            if (response.status === 200) {
-                console.log('Artist created:', await response.json())
-                setArtistName('')
-                setFirstName('')
-                setLastName('')
-                setArtistPicUrl('')
-                setSoundCloudUrl('')
-                setBeatPortUrl('')
-                setInstagramUrl('')
-                setFacebookUrl('')
-                setWebPage('')
+                console.log('Artist created:', response.json())
                 navigate(`/artists`)
-            } else {
-                console.error('Failed to create artist:')
             }
-        } catch (error) {
+         catch (error) {
             console.log(error)
         }
     }
@@ -118,6 +109,6 @@ const AddArtistPage = () => {
             </form>
         </div>
       );
-}
- 
+
+    }
 export default AddArtistPage;
