@@ -31,7 +31,7 @@ const ArtistsPage = () => {
         ))}
             <div>
               <button>
-                 <Link to = {`/artists/add`}>Add a new Artist </Link>
+                 <Link to = "/artists/add">Add a new Artist </Link>
               </button>
             </div>    
         </>
