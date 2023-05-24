@@ -47,27 +47,27 @@ const Footer = () => {
           <div className="nav-bar">
               <ul className="nav-bar-mobile-footer">
                 <li>
-                  <Link to="/home"><img src="/src/assets/images/favicons/icons8-home-50.png" alt="home"/></Link>
+                  <Link to="/home"><img src="src/assets/images/favicons/icons8-home-50.png" alt="home"/></Link>
                   <p>Home</p>
                 </li>
                 <li>
-                  <Link to="/events"><img src="/src/assets/images/favicons/icons8-calendar-50.png" alt="events"/></Link>
+                  <Link to="/events"><img src="src/assets/images/favicons/icons8-calendar-50.png" alt="events"/></Link>
                   <p>Events</p>
                 </li>
                 <li>
-                  <Link to="/artists"><img src="/src/assets/images/favicons/icons8-dj-50.png" alt="artists"/></Link>
+                  <Link to="/artists"><img src="src/assets/images/favicons/icons8-dj-50.png" alt="artists"/></Link>
                   <p>Artists</p>
                 </li>
                 <li>
-                  <Link to="/profile"><img src="/src/assets/images/favicons/icons8-head-profile-50.png" alt="my_profile"/></Link>
+                  <Link to="/profile"><img src="src/assets/images/favicons/icons8-head-profile-50.png" alt="my_profile"/></Link>
                   <p>Profile</p>
                 </li>
                 <li>
-                  <Link to="/signup"><img src="/src/assets/images/favicons/icons8-login-rounded-up-50.png" alt="signup"/></Link>
+                  <Link to="/signup"><img src="src/assets/images/favicons/icons8-login-rounded-up-50.png" alt="signup"/></Link>
                   <p>Signup</p>
                 </li>
                 <li>
-                  <Link to="/contact"><img src="/src/assets/images/favicons/icons8-info-50.png" alt="contact"/></Link>
+                  <Link to="/contact"><img src="src/assets/images/favicons/icons8-info-50.png" alt="contact"/></Link>
                   <p>Contact</p>
                 </li>
               </ul>
