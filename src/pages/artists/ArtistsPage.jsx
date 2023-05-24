@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import "./artists.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSoundcloud, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 const ArtistsPage = () => {
     const [ artists, setArtists ]= useState([])
@@ -21,19 +28,32 @@ const ArtistsPage = () => {
 
     return artists ? (
         <>
-        <h1>Variety Artists</h1>
-        {artists.map(artist => (
-            <Link key={artist._id} to ={`/artists/${artist._id}`}>
-                <img width="150px" src={artist.artistPicUrl} alt='artist image'/>
-                <h2>{artist.artistName}</h2>
-                <h4>{artist.soundCloudUrl}</h4>
-            </Link>
-        ))}
-            <div>
-              <button>
-                 <Link to = "/artists/add">Add a new Artist </Link>
-              </button>
-            </div>    
+          <h1 className="page-title">Variety Artists</h1>
+          <div className="artist-list">
+            {artists.map(artist => (
+              <Link key={artist._id} to={`/artists/${artist._id}`} className="artist-link">
+                <div className="artist-card">
+                  <img className="artist-image" src={artist.artistPicUrl} alt='artist image' />
+                  <h2 className="artist-name">{artist.artistName}</h2>
+                  <div className="artist-url">
+                                <a href={artist.soundCloudUrl} target="_blank" rel="noopener noreferrer">
+                                    <FontAwesomeIcon icon={faSoundcloud} className="social-icon" />
+                                </a>
+                            </div>
+                            <div className="artist-url">
+                                <a href={artist.instagramUrl} target="_blank" rel="noopener noreferrer">
+                                    <FontAwesomeIcon icon={faInstagram} className="social-icon" />
+                                </a>
+                            </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div>
+            <button className="add-artist-btn">
+              <Link to="/artists/add" variant="outlined">Add a new Artist</Link>
+            </button>
+          </div>
         </>
       ) : (
         <h1>Loading...</h1>
