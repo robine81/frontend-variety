@@ -8,6 +8,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
 
   const { setToken, setIsLoggedIn, setUser } = useContext(SessionContext);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
     try {
@@ -29,7 +30,11 @@ const LoginPage = () => {
         setIsLoggedIn(true);
         navigate("/profile");
       }
-    } catch(err){
+      else if (response.status === 401) {
+        const data = await response.json();
+        setErrorMessage(data.errorMessage);
+      } 
+    } catch(err) {
       console.log("Error login: ", err)
     }
   };
@@ -58,6 +63,7 @@ const LoginPage = () => {
           />
         </label>
         <button type="submit">Log In</button>
+        <p>{errorMessage}</p>
       </form>
     </>
   );
