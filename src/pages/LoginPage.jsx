@@ -64,5 +64,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
-//TBC!!!!!!!
