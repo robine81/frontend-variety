@@ -2,6 +2,7 @@ import  { Breakpoint } from 'react-socks';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import lessThan from '../images/favicons/icons8-less-than-50.png'
+import logo from '../image/variety_logo.png'
 
 
 const NavigationBar = () => {
@@ -19,7 +20,7 @@ const NavigationBar = () => {
         <Breakpoint medium up>
             <div className='nav-bar'>
               <Link to='/home'>
-                <img className="logo" src="/src/images/variety_logo.jpeg" alt="variety" />
+                <img className="logo" src={logo} alt="variety" />
               </Link>
               <div className='nav-bar'>
                 <ul className='nav-bar'>
