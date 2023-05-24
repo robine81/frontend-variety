@@ -17,7 +17,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: white;
   text-decoration: inherit;
 }
 a:hover {
@@ -51,65 +51,66 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --text-color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+ul {
+  list-style-type: none;
 }
+
 
 .nav-bar {
   display: flex;
   flex-direction: row;
   background-color: black;
-  padding-bottom: 1rem;
+  justify-content: space-between;
+  padding-right: 1rem;
 }
 
+.nav-bar ul {
+
+  list-style-type: none;
+  column-gap: 1rem;
+}
 .nav-bar-mobile {
   display: flex;
   flex-direction: row;
   background-color: black;
-  padding-bottom: 3rem;
+  color: white;
   margin-top: 0;
+  font-size: 30px;
+  font-weight:500;
 }
 
-.nav-bar ul {
-  list-style-type: none;
-  column-gap: 1rem;
-}
-
-.header-items {
+.header-mobile-items {
   display: flex;
   flex-direction: column;
-  column-gap: 20rem;
+  justify-content: center;
+  row-gap: 1rem;
 }
 .header-items ul {
   column-gap: 20rem;
 }
+
+.nav-bar-mobile-footer {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  font-size: 12px;
+  position -webkit-sticky;
+  position sticky;
+}
+
+
+.nav-bar-mobile-footer img {
+  height: 30px;
+}
+
+.nav-bar-mobile-footer p {
+  margin:0px;
+}
+
+
 
 .footer {
   display: flex;
@@ -119,7 +120,7 @@ button:focus-visible {
 }
 
 .main-home-image {
-  height: 300px;
+  height: 700px;
   padding: 20px;
 }
 
@@ -137,4 +138,9 @@ button:focus-visible {
 
 .layout-wrapper main {
   flex-grow: 1;
+}
+
+
+.logo {
+  height: 80px;
 }
