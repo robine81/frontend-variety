@@ -8,16 +8,20 @@ const SessionContextProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage({ key: "authToken" });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const verifyToken = async (currentToken) => {
-    const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/auth/verify`, {
-      headers: {
-        Authorization: `Bearer ${currentToken}`,
-      },
-    });
+    setIsLoading(true);
+    const response = await fetch(
+      `${import.meta.env.VITE_BASE_API_URL}/auth/verify`,
+      {
+        headers: {
+          Authorization: `Bearer ${currentToken}`,
+        },
+      }
+    );
     console.log("Respones: ", response.ok);
     if (response.ok) {
       const parsed = await response.json();
