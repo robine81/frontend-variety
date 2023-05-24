@@ -2,7 +2,7 @@ import  { Breakpoint } from 'react-socks';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import lessThan from '../images/favicons/icons8-less-than-50.png'
-import logo from '../image/variety_logo.jpeg'
+import logo from '../images/variety_logo.jpeg'
 
 
 const NavigationBar = () => {
