@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import homeIcon from '../images/favicons/icons8-home-50.png'
 import eventIcon from '../images/favicons/icons8-calendar-50.png'
 import artistIcon from '../images/favicons/icons8-dj-50.png'
-import profileIcon from '../images/favicons/icons8-head-profile-up-50.png'
-import signupIcon from '../images/favicons/icons8-rounded-up-50.png'
+import profileIcon from '../images/favicons/icons8-head-profile-50.png'
+import signupIcon from '../images/favicons/icons8-login-rounded-up-50.png'
 import contactIcon from '../images/favicons/icons8-info-50.png'
 
 const Footer = () => {
