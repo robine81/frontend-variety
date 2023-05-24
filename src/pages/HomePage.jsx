@@ -1,5 +1,7 @@
 import LoginSignupSearch from "../components/LoginSignupSearch";
 import  { Breakpoint } from 'react-socks';
+import homeImg from '../images/CircusVariety.jpeg'
+import placeHolder from '../images/placeholder.png'
 
 const HomePage = () => {
   return (
@@ -10,23 +12,23 @@ const HomePage = () => {
       <div className="home">
         <img
           className="main-home-image"
-          src="/src/assets/images/CircusVariety2618_web.jpeg"
+          src={homeImg}
           alt="placeholder"
         ></img>
         <div className="gallery">
           <img
             className="home-image"
-            src="/src/assets/images/placeholder.png"
+            src={placeHolder}
             alt="placeholder"
           ></img>
           <img
             className="home-image"
-            src="/src/assets/images/placeholder.png"
+            src={placeHolder}
             alt="placeholder"
           ></img>
           <img
             className="home-image"
-            src="/src/assets/images/placeholder.png"
+            src={placeHolder}
             alt="placeholder"
           ></img>
         </div>
