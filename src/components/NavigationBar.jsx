@@ -63,7 +63,8 @@ const NavigationBar = () => {
             <Breakpoint small down>
               <div className='nav-bar-mobile'>
               <img src="/src/assets/images/favicons/icons8-less-than-50_1.png" alt="" onClick={handleGoBack} style= {{height:"30px"}}/>
-              <p>{location.pathname.slice(1).toUpperCase()} </p>
+              <p>
+                {location.pathname.slice(1).toUpperCase()} </p>
               </div>
         </Breakpoint>
         </nav>
