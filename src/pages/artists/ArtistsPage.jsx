@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./artists.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSoundcloud, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -33,10 +35,16 @@ const ArtistsPage = () => {
                 <div className="artist-card">
                   <img className="artist-image" src={artist.artistPicUrl} alt='artist image' />
                   <h2 className="artist-name">{artist.artistName}</h2>
-                  <h2 className="artist-url">
-                  <a href={artist.soundCloudUrl} target="_blank" rel="noopener noreferrer">Soundcloud</a></h2>
-                  <h2 className="artist-url">
-                    <a href={artist.instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a></h2>
+                  <div className="artist-url">
+                                <a href={artist.soundCloudUrl} target="_blank" rel="noopener noreferrer">
+                                    <FontAwesomeIcon icon={faSoundcloud} className="social-icon" />
+                                </a>
+                            </div>
+                            <div className="artist-url">
+                                <a href={artist.instagramUrl} target="_blank" rel="noopener noreferrer">
+                                    <FontAwesomeIcon icon={faInstagram} className="social-icon" />
+                                </a>
+                            </div>
                 </div>
               </Link>
             ))}
