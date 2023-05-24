@@ -11,27 +11,31 @@ const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const response = await fetch(
-      `${import.meta.env.VITE_BASE_API_URL}/auth/login`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
+    try {
+      event.preventDefault();
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_API_URL}/auth/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
+      if (response.status === 200) {
+        const { authToken, user } = await response.json();
+        setToken(authToken);
+        setUser(user);
+        setIsLoggedIn(true);
+        navigate("/profile");
       }
-    );
-    if (response.status === 200) {
-      const { authToken, user } = await response.json();
-      console.log("Token: ", authToken);
-      setToken(authToken);
-      setUser(user);
-      setIsLoggedIn(true);
-      navigate("/profile");
-    } else if (response.status === 401) {
-      const data = await response.json();
-      setErrorMessage(data.errorMessage);
+      else if (response.status === 401) {
+        const data = await response.json();
+        setErrorMessage(data.errorMessage);
+      } 
+    } catch(err) {
+      console.log("Error login: ", err)
     }
   };
 
