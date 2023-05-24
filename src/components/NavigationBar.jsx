@@ -1,6 +1,8 @@
 import  { Breakpoint } from 'react-socks';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
+//import icons8-less-than-50_1 from '../images/favicons/icons8-less-than-50.png'
+
 
 const NavigationBar = () => {
   const location = useLocation()
@@ -17,7 +19,7 @@ const NavigationBar = () => {
         <Breakpoint medium up>
             <div className='nav-bar'>
               <Link to='/home'>
-                <img className="logo" src="/src/assets/images/variety_logo.jpeg" alt="variety" />
+                <img className="logo" src="/src/images/variety_logo.jpeg" alt="variety" />
               </Link>
               <div className='nav-bar'>
                 <ul className='nav-bar'>
@@ -62,9 +64,10 @@ const NavigationBar = () => {
             </Breakpoint>
             <Breakpoint small down>
               <div className='nav-bar-mobile'>
-              <img src="/src/assets/images/favicons/icons8-less-than-50_1.png" alt="" onClick={handleGoBack} style= {{height:"30px"}}/>
+              <img src="/src/images/favicons/icons8-less-than-50_1.png" alt="" onClick={handleGoBack} style= {{height:"30px"}}/>
               <p>
-                {location.pathname.slice(1).toUpperCase()} </p>
+                {location.pathname ? location.pathname.slice(1).toUpperCase() : "HOME"} 
+              </p>
               </div>
         </Breakpoint>
         </nav>
