@@ -22,6 +22,7 @@ const LoginPage = () => {
         body: JSON.stringify({ email, password }),
       }
     );
+
     if (response.status === 200) {
       const { authToken, user } = await response.json();
       console.log("Token: ", authToken);
