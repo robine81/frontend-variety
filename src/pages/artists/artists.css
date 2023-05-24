@@ -1,0 +1,54 @@
+.page-title {
+    font-size: 51px;
+    color: #282828;
+    text-align: center;
+
+  }
+  
+  .artist-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+  }
+  
+  .artist-link {
+    text-decoration: none;
+    margin: 10px;
+
+  }
+  
+  .artist-card {
+    background-color: #282828;
+    border-radius: 8px;
+    padding: 16px;
+    width: 220px;
+    height: 350px;
+
+  }
+  
+  .artist-image {
+    width: 220px;
+    border-radius: 8px;
+  }
+  
+  .artist-name {
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+
+  }
+  
+  .artist-url {
+    font-size: 16px;
+    text-align: center;
+    color: rgb(162, 162, 162);
+  }
+  
+  .add-artist-btn {
+    background-color: #282828;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+  }
