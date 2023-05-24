@@ -1,5 +1,6 @@
 import { Breakpoint, BreakpointProvider } from "react-socks";
 import { Link } from "react-router-dom";
+import homeIcon from '../images/favicons/icons8-home-50.png'
 
 const Footer = () => {
   return (
@@ -47,7 +48,7 @@ const Footer = () => {
           <div className="nav-bar">
               <ul className="nav-bar-mobile-footer">
                 <li>
-                  <Link to="/home"><img src="/src/assets/images/favicons/icons8-home-50.png" alt="home"/></Link>
+                  <Link to="/home"><img src={homeIcon} alt="home"/></Link>
                   <p>Home</p>
                 </li>
                 <li>
