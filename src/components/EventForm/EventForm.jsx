@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from "react";
+import TextField from "@mui/material/TextField";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import dayjs, { Dayjs } from "dayjs";
+import Button from "@mui/material/Button";
+import Autocomplete from "@mui/material/Autocomplete";
 
 export default function EventForm(props) {
   const { handleSubmit, isUpdate } = props;
@@ -9,13 +14,15 @@ export default function EventForm(props) {
   const [ticketPrice, setTicketPrice] = useState(props.ticketPrice);
   const [artworkUrl, setArtWorkUrl] = useState(props.artworkUrl || "");
   const [lineUp, setLineUp] = useState(
-    (Array.isArray(props.lineUp) && props.lineUp.map((lp) => lp._id)) || []
+    (Array.isArray(props.lineUp) && props.lineUp) || []
   );
   const [artists, setArtists] = useState([]);
 
   const fetchArtists = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/artists`);
+      const response = await fetch(
+        `${import.meta.env.VITE_BASE_API_URL}/artists`
+      );
       if (response.status === 200) {
         const data = await response.json();
         setArtists(data);
@@ -37,7 +44,7 @@ export default function EventForm(props) {
       date,
       location,
       artworkUrl,
-      lineUp,
+      lineUp: lineUp.map((artist) => artist._id), // just send ids
       ticketPrice,
     };
     handleSubmit(payload);
@@ -45,79 +52,62 @@ export default function EventForm(props) {
 
   return (
     <form className="add-new-form" onSubmit={onSubmit}>
-      <label>
-        Event Name
-        <input
-          type="text"
-          value={eventName}
-          onChange={(event) => {
-            setEventName(event.target.value);
-          }}
-        />
-      </label>
-      <label>
-        Location
-        <input
-          type="text"
-          value={location}
-          onChange={(event) => {
-            setLocation(event.target.value);
-          }}
-        />
-      </label>
-      <label>
-        Artwork Url
-        <input
-          type="text"
-          value={artworkUrl}
-          onChange={(event) => {
-            setArtWorkUrl(event.target.value);
-          }}
-        />
-      </label>
-      <label>
-        Date
-        <input
-          type="datetime-local"
-          value={date.replace("Z", "")} //https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local#value
-          onChange={(event) => {
-            setDate(event.target.value);
-          }}
-        />
-      </label>
-      <label>
-        Line Up
-        <select
-          value={lineUp}
-          multiple
-          onChange={(e) => {
-            //https://stackoverflow.com/a/49684109
-            let value = Array.from(
-              e.target.selectedOptions,
-              (option) => option.value
-            );
-
-            setLineUp(value);
-          }}
-        >
-          {artists.map((artist) => (
-            <option key={artist._id} value={artist._id}>
-              {artist.artistName}
-            </option>
-          ))}
-        </select>
-      </label>
-      <label>
-        Ticket Price
-        <input
-          type="number"
-          value={ticketPrice}
-          onChange={(event) => {
-            setTicketPrice(event.target.value);
-          }}
-        />
-      </label>
-      <button type="submit">{isUpdate ? "UPDATE" : "ADD NEW"}</button>
+      <TextField
+        label="Event Name"
+        variant="outlined"
+        value={eventName}
+        onChange={(event) => {
+          setEventName(event.target.value);
+        }}
+      />
+      <TextField
+        label="Location"
+        variant="outlined"
+        value={location}
+        onChange={(event) => {
+          setLocation(event.target.value);
+        }}
+      />
+      <TextField
+        type="url"
+        label="Artwork Url"
+        variant="outlined"
+        value={artworkUrl}
+        onChange={(event) => {
+          setArtWorkUrl(event.target.value);
+        }}
+      />
+      <DateTimePicker
+        label="Date & Time"
+        value={dayjs(date)}
+        onChange={(val) => setDate(val.toISOString())}
+      />
+      <Autocomplete
+        multiple
+        value={lineUp}
+        label="Line Up"
+        id="tags-outlined"
+        onChange={(event, newValue) => {
+          setLineUp(newValue);
+        }}
+        options={artists}
+        getOptionLabel={(option) => option.artistName}
+        filterSelectedOptions
+        renderInput={(params) => <TextField {...params} label="Line Up" />}
+        isOptionEqualToValue={(option, value) => option._id === value._id}
+      />
+      <TextField
+        type="number"
+        label="Ticket Price"
+        variant="outlined"
+        value={ticketPrice}
+        onChange={(event) => {
+          setTicketPrice(event.target.value);
+        }}
+      />
+      <Button variant="contained" type="submit">
+        {isUpdate ? "UPDATE" : "ADD NEW"}
+      </Button>
     </form>
   );
 }
