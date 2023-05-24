@@ -5,16 +5,16 @@ const LoginSignupSearch = () =>{
   return (
     <div className='header-mobile-items'>
       <Link to='/login'>
-        <Button variant="contained">Login</Button>
+        <Button variant="outlined">Login</Button>
       </Link>
       <Link to='/signup'>
-        <Button variant="contained">Signup</Button>
+        <Button variant="outlined">Signup</Button>
       </Link>
       <form role='search'>
           <input type='search' placeholder='Search'/>
-          <button type='submit'>
+          <Button variant="outlined" type='submit'>
           Search
-          </button>
+          </Button>
       </form>
     </div>  
   )

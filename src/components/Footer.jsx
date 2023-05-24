@@ -1,15 +1,8 @@
 import { Breakpoint, BreakpointProvider } from "react-socks";
 import { Link } from "react-router-dom";
-import homeIcon from '../images/favicons/icons8-home-50.png'
-import eventIcon from '../images/favicons/icons8-calendar-50.png'
-import artistIcon from '../images/favicons/icons8-dj-50.png'
-import profileIcon from '../images/favicons/icons8-head-profile-50.png'
-import signupIcon from '../images/favicons/icons8-login-rounded-up-50.png'
-import contactIcon from '../images/favicons/icons8-info-50.png'
 
 const Footer = () => {
   return (
-    <div>
       <nav>
         <Breakpoint medium up>
           <footer>
@@ -49,38 +42,7 @@ const Footer = () => {
             </ul>
           </footer>
         </Breakpoint>
-        <Breakpoint small down>
-          <div className="nav-bar">
-              <ul className="nav-bar-mobile-footer">
-                <li>
-                  <Link to="/home"><img src={homeIcon} alt="home"/></Link>
-                  <p>Home</p>
-                </li>
-                <li>
-                  <Link to="/events"><img src={eventIcon} alt="events"/></Link>
-                  <p>Events</p>
-                </li>
-                <li>
-                  <Link to="/artists"><img src={artistIcon} alt="artists"/></Link>
-                  <p>Artists</p>
-                </li>
-                <li>
-                  <Link to="/profile"><img src={profileIcon} alt="my_profile"/></Link>
-                  <p>Profile</p>
-                </li>
-                <li>
-                  <Link to="/signup"><img src={signupIcon} alt="signup"/></Link>
-                  <p>Signup</p>
-                </li>
-                <li>
-                  <Link to="/contact"><img src={contactIcon} alt="contact"/></Link>
-                  <p>Contact</p>
-                </li>
-              </ul>
-            </div>
-        </Breakpoint>
       </nav>
-    </div>
   );
 };
 
