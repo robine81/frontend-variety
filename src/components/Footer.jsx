@@ -1,4 +1,5 @@
 import { Breakpoint, BreakpointProvider } from "react-socks";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
         <Breakpoint medium up>
           <footer>
             <div className="footer">
-              <a href="/">
+              <a href="/home">
                 <svg width={30} height={24}>
                   <use xlinkHref="#home" />
                 </svg>
@@ -44,30 +45,33 @@ const Footer = () => {
         </Breakpoint>
         <Breakpoint small down>
           <div className="nav-bar">
-            <a chref="/">Variety</a>
-            <div className="nav-bar">
-              <ul className="nav-bar">
+              <ul className="nav-bar-mobile-footer">
                 <li>
-                  <a href="/">HOME</a>
+                  <Link to="/home"><img src="/src/assets/images/favicons/icons8-home-50.png" alt="home"/></Link>
+                  <p>Home</p>
                 </li>
                 <li>
-                  <a href="/events">EVENTS</a>
+                  <Link to="/events"><img src="/src/assets/images/favicons/icons8-calendar-50.png" alt="events"/></Link>
+                  <p>Events</p>
                 </li>
                 <li>
-                  <a href="/artists">ARTISTS</a>
+                  <Link to="/artists"><img src="/src/assets/images/favicons/icons8-dj-50.png" alt="artists"/></Link>
+                  <p>Artists</p>
                 </li>
                 <li>
-                  <a href="/profile">MY PROFILE</a>
+                  <Link to="/profile"><img src="/src/assets/images/favicons/icons8-head-profile-50.png" alt="my_profile"/></Link>
+                  <p>Profile</p>
                 </li>
                 <li>
-                  <a href="/contact">CONTACT</a>
+                  <Link to="/signup"><img src="/src/assets/images/favicons/icons8-login-rounded-up-50.png" alt="signup"/></Link>
+                  <p>Signup</p>
                 </li>
                 <li>
-                  <a href="/sign-up">SIGN-UP</a>
+                  <Link to="/contact"><img src="/src/assets/images/favicons/icons8-info-50.png" alt="contact"/></Link>
+                  <p>Contact</p>
                 </li>
               </ul>
             </div>
-          </div>
         </Breakpoint>
       </nav>
     </div>
