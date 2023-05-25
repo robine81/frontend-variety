@@ -74,10 +74,15 @@ ul {
   height: 50px;
   background-color: black;
   color: white;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 9999;
+}
+
+.breakpoint__small-down + main {
+  margin-top: 50px;
+  padding-bottom: 90px;
 }
 
 .header-mobile-items {

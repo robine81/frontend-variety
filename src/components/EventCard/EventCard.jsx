@@ -10,7 +10,7 @@ export default function EventCard({ event, children }) {
       <Avatar
         alt={event.eventName}
         src={event.artworkUrl}
-        sx={{ width: 150, height: 150, marginRight: "30px" }}
+        sx={{ width: 150, height: 150, marginRight: "20px" }}
       />
       <div className="event-card-info">
         <h2 className="event-card-link">
