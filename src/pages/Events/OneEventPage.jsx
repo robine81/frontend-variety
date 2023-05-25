@@ -56,7 +56,11 @@ export default function OneEventPage() {
   return (
     <EventCard event={event}>
       {isLoggedIn && (
-        <ButtonGroup variant="contained" sx={{ marginLeft: "30px" }}>
+        <ButtonGroup
+          orientation="vertical"
+          variant="contained"
+          sx={{ marginLeft: "30px" }}
+        >
           <Button
             color="error"
             startIcon={<DeleteOutlineIcon />}

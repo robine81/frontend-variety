@@ -1,5 +1,3 @@
-
-
 html,
 body {
   width: 100%;
@@ -30,17 +28,18 @@ ul {
   list-style-type: none;
 }
 
-
 .nav-bar {
   display: flex;
   flex-direction: row;
   background-color: black;
   justify-content: space-between;
+}
+
+.pad-right {
   padding-right: 1rem;
 }
 
 .nav-bar ul {
-
   list-style-type: none;
   column-gap: 1rem;
 }
@@ -50,8 +49,40 @@ ul {
   background-color: black;
   color: white;
   margin-top: 0;
-  font-size: 30px;
-  font-weight:500;
+  font-weight: 500;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 40px);
+  z-index: 9999;
+  height: 50px;
+}
+
+.nav-bar-mobile p {
+  margin: 0;
+}
+
+.nav-bar-mobile img {
+  max-width: 30px;
+  box-sizing: border-box;
+}
+
+.top-bar-mobile {
+  height: 50px;
+  background-color: black;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.breakpoint__small-down + main {
+  margin-top: 50px;
+  padding-bottom: 90px;
 }
 
 .header-mobile-items {
@@ -72,16 +103,13 @@ ul {
   position: sticky;
 }
 
-
 .nav-bar-mobile-footer img {
   height: 30px;
 }
 
 .nav-bar-mobile-footer p {
-  margin:0px;
+  margin: 0px;
 }
-
-
 
 .footer {
   display: flex;
@@ -90,13 +118,14 @@ ul {
   column-gap: 1rem;
 }
 
-.hero-image{
-
+.hero-image {
 }
 
 .main-home-image {
-  height: 700px;
+  max-width: 990px;
   padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .gallery img {
@@ -114,7 +143,6 @@ ul {
 .layout-wrapper main {
   flex-grow: 1;
 }
-
 
 .logo {
   height: 80px;
