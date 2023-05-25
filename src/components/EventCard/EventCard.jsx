@@ -22,10 +22,17 @@ export default function EventCard({ event, children }) {
         </p>
         <p>
           {event.lineUp && <strong>Line Up: </strong>}
-          {event.lineUp &&
+          <ul style={{ listStyle: 'none', padding: 0 }}>
+          {event.lineUp &&  
+          
             event.lineUp.map((artist) => (
-              <span key={artist._id}>{artist.artistName}</span>
+            
+              <li className="lineup" key={artist._id} style={{ marginLeft: '0', fontWeight: 'bold'}}>
+                {artist.artistName}
+            
+              </li>
             ))}
+            </ul>
         </p>
         <p>
           <strong>Location: </strong>
