@@ -62,7 +62,7 @@ export default function OneEventPage() {
           sx={{ marginLeft: "30px" }}
         >
           <Button
-            color="error"
+            color="secondary"
             startIcon={<DeleteOutlineIcon />}
             onClick={deleteEvent}
           >

@@ -1,5 +1,7 @@
 import { Breakpoint, BreakpointProvider } from "react-socks";
 import { Link } from "react-router-dom";
+import { faSoundcloud, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = () => {
   return (
@@ -16,27 +18,18 @@ const Footer = () => {
             </div>
             <ul className="footer">
               <li>
-                <Link>
-                  Soundcloud
-                  <svg width={24} height={24}>
-                    <use xlinkHref="#soundcloud" />
-                  </svg>
+                <Link to="https://www.soundcloud.com">
+                  <FontAwesomeIcon color="teal" icon={faSoundcloud} className="social-icon" />
                 </Link>
               </li>
               <li>
-                <Link to="www.instagram.com/variety">
-                  Instagram
-                  <svg width={24} height={24}>
-                    <use xlinkHref="#instagram" />
-                  </svg>
+                <Link to="https://www.instagram.com/variety.berlin">
+                <FontAwesomeIcon color="teal" icon={faInstagram} className="social-icon" />
                 </Link>
               </li>
               <li>
-                <Link to="www.facebook.com/variety">
-                  Facebook
-                  <svg width={24} height={24}>
-                    <use xlinkHref="#facebook" />
-                  </svg>
+                <Link to="https://www.facebook.com/variety.berlin">
+                <FontAwesomeIcon color="teal" icon={faFacebook} className="social-icon" />
                 </Link>
               </li>
             </ul>

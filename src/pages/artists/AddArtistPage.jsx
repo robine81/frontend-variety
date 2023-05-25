@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { SessionContext } from "../../contexts/SessionContext";
 
+
 const AddArtistPage = () => {
     const { token } = useContext(SessionContext);
     const navigate = useNavigate()
@@ -48,6 +49,7 @@ const AddArtistPage = () => {
     return (
         <div>
             <h1>Add a new Artist</h1>
+
             <form
             style={{ display: 'grid', gridTemplate: 'repeat(5, 1fr) / auto' }}
             onSubmit={handleSubmit}>
@@ -107,6 +109,7 @@ const AddArtistPage = () => {
         />
         <button type="submit">Add Artist</button>
             </form>
+
         </div>
       );
 

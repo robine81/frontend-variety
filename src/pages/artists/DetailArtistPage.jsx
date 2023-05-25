@@ -1,8 +1,11 @@
 import { useEffect, useState, useContext } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { SessionContext } from "../../contexts/SessionContext";
+import Button from "@mui/material/Button";
+import "./artists.css";
 
 const DetailArtistPage = () => {
+  const { isLoggedIn } = useContext(SessionContext);
   const { token } = useContext(SessionContext);
   const { id } = useParams()
   const navigate = useNavigate()
@@ -15,9 +18,7 @@ const DetailArtistPage = () => {
       const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/artists/${id}`)
       if (response.status === 200) {
         const data = await response.json()
-        console.log(data)
         setArtist(data)
-        console.log(artist)
       }
     } catch (error) {
       console.log(error)
@@ -46,23 +47,38 @@ const DetailArtistPage = () => {
 
   return artist ? (
     <>
-        <div>
-    <h1>{artist.artistName} </h1>
+    <div className='page-title'>
+    <h1 className='page-title'>{artist.artistName} </h1>
     <img width="200px" src={artist.artistPicUrl} alt='artist image'/>
-      <h4> First Name: {artist.firstName} </h4>
+    </div>
+    <div className='artist-text'>
+      <h4> First Name: {artist.firstName}</h4>
       <h4> Last Name: {artist.lastName} </h4>
-      <h4>Soundcloud: <Link to={artist.soundCloudUrl}>{artist.soundCloudUrl}</Link></h4>
-      <h4>Beatport: <Link to={artist.beatPortUrl}>{artist.beatPortUrl}</Link></h4>
-      <h4>Instagram: <Link to={artist.instagramUrl}>{artist.instagramUrl}</Link></h4>
-      <h4>Facebook: <Link to={artist.facebookUrl}>{artist.facebookUrl}</Link></h4>
-      <h4>Web Page: <Link to={artist.webPage}>{artist.webPage}</Link></h4>
-        </div>
-      <button>
-        <Link to={`/artists/update/${id}`}>Update Artist Info</Link>
-      </button>
-      <button type='button' onClick={handleDelete}>
-        <Link to={`/artists`}>Delete Artist</Link>
-      </button>
+      <h5><Link to={artist.soundCloudUrl}>Soundcloud</Link></h5>
+      <h5><Link to={artist.beatPortUrl}>Beatport</Link></h5>
+      <h5><Link to={artist.instagramUrl}>Instagram</Link></h5>
+      <h5><Link to={artist.facebookUrl}>Facebook</Link></h5>
+      <h5><Link to={artist.webPage}>Web Page</Link></h5>
+      </div>
+        <div className='flex-center-div'>
+        {isLoggedIn && ( 
+        <Button className="add-artist-btn"  sx={{ height: "40px" }}
+            variant="contained"
+            color="primary"
+            type='button'>
+               <Link to={`/artists/update/${id}`}>Update Artist Info</Link>
+            </Button>)}
+            
+            <br></br>
+            
+      {isLoggedIn && (
+            <Button className="add-artist-btn"  sx={{ height: "40px" }}
+            variant="contained"
+            color="primary"
+            type='button' onClick={handleDelete}>
+            <Link to={`/artists`}>Delete Artist</Link>
+            </Button>)}
+            </div>
     </>
   ) : (
     <h1>Loading information about your Artist</h1>

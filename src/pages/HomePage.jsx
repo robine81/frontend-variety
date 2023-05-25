@@ -1,13 +1,14 @@
 import LoginSignupSearch from "../components/LoginSignupSearch";
 import  { Breakpoint } from 'react-socks';
-import homeImg from '../images/CircusVariety.jpeg'
+import homeImg from '../images/CircusVarietyMobile.png'
 import placeHolder from '../images/placeholder.png'
+import Layout from "../components/Layout";
 
 const HomePage = () => {
   return (
     <>
+
       <Breakpoint small down>
-      <LoginSignupSearch></LoginSignupSearch>
       </Breakpoint>
       <div className="home">
         <img
@@ -15,23 +16,6 @@ const HomePage = () => {
           src={homeImg}
           alt="placeholder"
         ></img>
-        <div className="gallery">
-          <img
-            className="home-image"
-            src={placeHolder}
-            alt="placeholder"
-          ></img>
-          <img
-            className="home-image"
-            src={placeHolder}
-            alt="placeholder"
-          ></img>
-          <img
-            className="home-image"
-            src={placeHolder}
-            alt="placeholder"
-          ></img>
-        </div>
       </div>
 
     </>

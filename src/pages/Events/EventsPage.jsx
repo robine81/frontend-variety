@@ -57,7 +57,7 @@ export default function EventsPage() {
           <Button
             sx={{ height: "56px" }}
             variant="contained"
-            color="success"
+            color="primary"
             startIcon={<AddCircleOutlineIcon />}
             onClick={() => navigate("/events/add")}
           >

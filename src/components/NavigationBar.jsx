@@ -1,7 +1,7 @@
 import { Breakpoint } from "react-socks";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import lessThan from "../images/favicons/icons8-less-than-50.png";
-import logo from "../images/variety_logo.jpeg";
+import logo from "../images/Variety_trans.png";
 import homeIcon from "../images/favicons/icons8-home-50.png";
 import eventIcon from "../images/favicons/icons8-calendar-50.png";
 import artistIcon from "../images/favicons/icons8-dj-50.png";
@@ -55,9 +55,11 @@ const NavigationBar = () => {
       </Breakpoint>
       <Breakpoint small down>
         <div className="top-bar-mobile">
-          {/* <Link to="/home">
-              <img className="logo" src={logo} alt="variety" />
-            </Link> */}
+        <div className="logo-mobile">
+           <Link to="/home">
+              <img  src={logo} alt="variety" />
+            </Link> 
+            </div>
         </div>
         <ul className="nav-bar-mobile">
           <li>
