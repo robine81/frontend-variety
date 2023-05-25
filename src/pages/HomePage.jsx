@@ -10,12 +10,20 @@ const HomePage = () => {
 
       <Breakpoint small down>
       </Breakpoint>
+      <div className="back-color">
       <div className="home">
-        <img
+      <div className="stage">
+      <div className="actor"></div>
+      <div className="actor"></div>
+      <div className="actor"></div>
+     <div className="actor"></div>
+    </div>
+    </div>
+        {/*<img
           className="main-home-image"
           src={homeImg}
           alt="placeholder"
-        ></img>
+  ></img>*/}
       </div>
 
     </>
