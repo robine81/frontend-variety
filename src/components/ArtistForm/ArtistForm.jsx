@@ -53,10 +53,7 @@ export default function ArtistForm(props) {
   };
 
   return (
-    <form
-      style={{ display: "grid", gridTemplate: "repeat(5, 1fr) / auto" }}
-      onSubmit={handleSubmit}
-    >
+    <form className="add-new-form" onSubmit={handleSubmit}>
       <TextField
         label="Artist Name"
         variant="outlined"
@@ -120,10 +117,11 @@ export default function ArtistForm(props) {
         name="webPage"
         onChange={handleChange}
       />
+      <div className="button-style">
       <Button variant="contained" type="submit">
         {isUpdate ? "UPDATE" : "ADD NEW"}
       </Button>
-      <button type="submit">Save Changes</button>
+      </div>
     </form>
   );
 }
