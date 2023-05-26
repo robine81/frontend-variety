@@ -1,48 +1,23 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { SessionContext } from "../../contexts/SessionContext";
+import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 export default function ArtistForm(props) {
-  const { handleSubmit, isUpdate } = props;
-  const { token } = useContext(SessionContext);
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [inputs, setInputs] = useState({
-    artistName: "",
-    firstName: "",
-    lastName: "",
-    artistPicUrl: "",
-    soundCloudUrl: "",
-    beatPortUrl: "",
-    instagramUrl: "",
-    facebookUrl: "",
-    webPage: "",
-  });
-  const [isLoading, setIsLoading] = useState(true);
-
-  const fetchArtist = async () => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BASE_API_URL}/artists/${id}`
-      );
-      const artist = await response.json();
-      delete artist.id;
-      //console.log(artist)
-      //console.log(inputs)
-      setIsLoading(false);
-      setInputs(artist);
-    } catch (error) {
-      console.log(error);
+  const { handleSubmit, isUpdate, artist } = props;
+  const [inputs, setInputs] = useState(
+    artist || {
+      artistName: "",
+      firstName: "",
+      lastName: "",
+      artistPicUrl: "",
+      soundCloudUrl: "",
+      beatPortUrl: "",
+      instagramUrl: "",
+      facebookUrl: "",
+      webPage: "",
     }
-  };
-  useEffect(() => {
-    if (isUpdate) {
-      fetchArtist();
-    }
-  }, [isUpdate, id]);
+  );
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -52,8 +27,14 @@ export default function ArtistForm(props) {
     }));
   };
 
+  const onSubmit = (ev) => {
+    ev.preventDefault();
+
+    handleSubmit(inputs);
+  };
+
   return (
-    <form className="add-new-form" onSubmit={handleSubmit}>
+    <form className="add-new-form" onSubmit={onSubmit}>
       <TextField
         label="Artist Name"
         variant="outlined"
@@ -118,9 +99,9 @@ export default function ArtistForm(props) {
         onChange={handleChange}
       />
       <div className="button-style">
-      <Button variant="contained" type="submit">
-        {isUpdate ? "UPDATE" : "ADD NEW"}
-      </Button>
+        <Button variant="contained" type="submit">
+          {isUpdate ? "UPDATE" : "ADD NEW"}
+        </Button>
       </div>
     </form>
   );
