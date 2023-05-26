@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { SessionContext } from "../contexts/SessionContext";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import Snackbar from "@mui/material/Snackbar";
 
 const ProfilePage = () => {
   const { logout } = useContext(SessionContext);
@@ -14,6 +16,7 @@ const ProfilePage = () => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,11 +28,11 @@ const ProfilePage = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email, firstName, lastName }),
+          body: JSON.stringify({ email, firstName, lastName, password }),
         }
       );
-      if (response.status === 201) {
-        navigate("/profile");
+      if (response.status === 200) {
+        setShowMessage(true);
       }
     } catch (error) {
       console.log(error);
@@ -82,6 +85,14 @@ const ProfilePage = () => {
           </Button>
         </div>
       </form>
+      <Snackbar
+        open={showMessage}
+        autoHideDuration={3000}
+        message="Profile updated"
+        onClose={() => {
+          setShowMessage(false);
+        }}
+      />
     </>
   );
 };

@@ -30,7 +30,7 @@ const LoginPage = () => {
         setToken(authToken);
         setUser(user);
         setIsLoggedIn(true);
-        navigate("/profile");
+        navigate("/events");
       } else if (response.status === 401) {
         const data = await response.json();
         setErrorMessage(data.errorMessage);

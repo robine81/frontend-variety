@@ -33,8 +33,7 @@ function App() {
             path="/artists/add"
             element={
               <PrivateRoute>
-                {" "}
-                <AddArtistPage />{" "}
+                <AddArtistPage />
               </PrivateRoute>
             }
           />
