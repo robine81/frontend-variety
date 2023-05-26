@@ -184,7 +184,6 @@ ul {
 }
 
 .actor:nth-child(1) {
-  animation-delay: ;
   background-image: url("./images/CircusVarietyMobile.png");
 }
 
@@ -227,4 +226,8 @@ ul {
 .profile-button-group {
   display: flex;
   gap: 50px;
+}
+
+.layout-wrapper .MuiSnackbar-root {
+  bottom: 100px;
 }
