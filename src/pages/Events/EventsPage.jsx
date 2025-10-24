@@ -67,7 +67,7 @@ export default function EventsPage() {
       </div>
       {eventSource.length > 0 &&
         eventSource.slice(page * 5, page * 5 + 5).map((event) => {
-          return <EventCard key={event._id} event={event} />;
+          return <EventCard key={event.id} event={event} />;
         })}
       <div className="event-page-pagination">
         <Pagination

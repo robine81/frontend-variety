@@ -21,7 +21,7 @@ export default function AddEventPage() {
       if (response.status === 201) {
         const newEvent = await response.json();
         console.log(newEvent);
-        navigate(`/events/${newEvent._id}`);
+        navigate(`/events/${newEvent.id}`);
       }
     } catch (error) {
       console.log(error);

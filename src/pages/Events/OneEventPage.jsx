@@ -69,7 +69,7 @@ export default function OneEventPage() {
             Delete
           </Button>
           <Button
-            onClick={() => navigate(`/events/update/${event._id}`)}
+            onClick={() => navigate(`/events/update/${event.id}`)}
             startIcon={<ModeEditOutlineIcon />}
           >
             Edit

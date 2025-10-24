@@ -47,7 +47,7 @@ export default function UpdateEventPage() {
     <EventForm
       handleSubmit={handleSubmit}
       isUpdate={true}
-      key={event._id}
+      key={event.id}
       {...event}
     />
   );

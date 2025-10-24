@@ -44,7 +44,7 @@ export default function EventForm(props) {
       date,
       location,
       artworkUrl,
-      lineUp: lineUp.map((artist) => artist._id), // just send ids
+      lineUp: lineUp.map((artist) => artist.id), // just send ids
       ticketPrice,
     };
     handleSubmit(payload);
@@ -94,7 +94,7 @@ export default function EventForm(props) {
         getOptionLabel={(option) => option.artistName}
         filterSelectedOptions
         renderInput={(params) => <TextField {...params} label="Line Up" />}
-        isOptionEqualToValue={(option, value) => option._id === value._id}
+        isOptionEqualToValue={(option, value) => option.id === value.id}
       />
       <TextField
         type="number"
