@@ -45,7 +45,7 @@ const ArtistsPage = () => {
           </div>
           <div className="artist-list">
             {artists.map(artist => (
-              <Link key={artist._id} to={`/artists/${artist._id}`} className="artist-link">
+              <Link key={artist.id} to={`/artists/${artist.id}`} className="artist-link">
                 <div className="artist-card">
                   <img className="artist-image" src={artist.artistPicUrl} alt='artist image' />
                   <h2 className="artist-name">{artist.artistName}</h2>

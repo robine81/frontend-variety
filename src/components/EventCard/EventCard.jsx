@@ -14,7 +14,7 @@ export default function EventCard({ event, children }) {
       />
       <div className="event-card-info">
         <h2 className="event-card-link">
-          <Link to={`/events/${event._id}`}>{event.eventName}</Link>
+          <Link to={`/events/${event.id}`}>{event.eventName}</Link>
         </h2>
         <p>
           <strong>Date: </strong>
@@ -27,7 +27,7 @@ export default function EventCard({ event, children }) {
           
             event.lineUp.map((artist) => (
             
-              <li className="lineup" key={artist._id} style={{ marginLeft: '0', fontWeight: 'bold'}}>
+              <li className="lineup" key={artist.id} style={{ marginLeft: '0', fontWeight: 'bold'}}>
                 {artist.artistName}
             
               </li>
